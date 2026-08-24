@@ -27,3 +27,12 @@ Route::view('/contact', 'contact')->name('contact');
 Route::post('/contact', [\App\Http\Controllers\InquiryController::class, 'store'])->name('inquiry.store');
 
 Route::get('/{slug}', [TourController::class, 'show']);
+
+Route::get('/setup-database', function () {
+    try {
+        \Illuminate\Support\Facades\Artisan::call('migrate', ['--force' => true]);
+        return 'Database migration successful! <br><br> Output: ' . nl2br(\Illuminate\Support\Facades\Artisan::output());
+    } catch (\Exception $e) {
+        return 'Error: ' . $e->getMessage();
+    }
+});
