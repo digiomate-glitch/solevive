@@ -7,10 +7,10 @@
     "license": "MIT",
     "require": {
         "php": "^8.3",
-        "awcodes/filament-curator": "^3.0",
-        "filament/filament": "^3.2",
-        "intervention/image": "^2.7",
-        "kahusoftware/filament-ckeditor-field": "^1.2",
+        "awcodes/filament-curator": "^5.0",
+        "filament/filament": "^4.0",
+        "intervention/image": "^3.0",
+        "kahusoftware/filament-ckeditor-field": "^2.0",
         "laravel/framework": "^13.8",
         "laravel/tinker": "^3.0"
     },
