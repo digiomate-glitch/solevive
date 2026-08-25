@@ -27,6 +27,7 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->brandName('Solvive')
             ->colors([
                 'primary' => Color::Amber,
             ])
