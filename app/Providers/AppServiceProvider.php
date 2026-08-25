@@ -13,8 +13,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $loader = \Illuminate\Foundation\AliasLoader::getInstance();
-        $loader->alias('Image', \Intervention\Image\Facades\Image::class);
+        //
     }
 
     /**
@@ -22,6 +21,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        // Force the deferred ImageServiceProvider to register
+        $this->app->make('image');
+        
+        // Now overwrite the binding with Intervention Image v2
+        $this->app->singleton('image', function ($app) {
+            return clone new \Intervention\Image\ImageManager(['driver' => 'gd']);
+        });
+        \Illuminate\Support\Facades\Image::clearResolvedInstance('image');
+        
         View::composer('components.header', function ($view) {
             $smallGroup = Category::where('slug', 'small-group-tours')->first();
             $private = Category::where('slug', 'private-tours')->first();
