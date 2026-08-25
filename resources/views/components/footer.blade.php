@@ -39,7 +39,7 @@
           <li><a href="{{ url('/small-group-tours') }}">Small Group Tours</a></li>
           <li><a href="{{ url('/private-tours') }}">Private Tours</a></li>
           <li><a href="{{ url('/angkor-wat-and-icons-of-southeast-asia') }}">Angkor Wat &amp; Icons</a></li>
-          <li><a href="{{ url('/cruising-the-mekong-angkor-wat') }}">Mekong River Cruise</a></li>
+          <li><a href="{{ url('/cruising-the-mekong-and-angkor-wat') }}">Mekong River Cruise</a></li>
         </ul>
       </div>
       <div class="footer-col">
