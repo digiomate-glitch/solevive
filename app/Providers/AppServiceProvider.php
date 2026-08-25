@@ -13,7 +13,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $loader = \Illuminate\Foundation\AliasLoader::getInstance();
+        $loader->alias('Image', \Intervention\Image\Facades\Image::class);
     }
 
     /**
