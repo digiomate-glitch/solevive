@@ -41,7 +41,28 @@
     <div class="wrap grid tour-body">
       <div>
         @if($tour->overview_image)
-        <img src="{{ asset('storage/' . $tour->overviewMedia?->path) }}" alt="{{ $tour->title }}" class="reveal" style="margin-bottom:50px; width:100%; border-radius:4px; aspect-ratio:16/9; object-fit:cover;">
+        <div style="position: relative; margin-bottom: 50px;" class="reveal">
+          <img src="{{ asset('storage/' . $tour->overviewMedia?->path) }}" alt="{{ $tour->title }}" style="width:100%; border-radius:4px; aspect-ratio:16/9; object-fit:cover; cursor: zoom-in; transition: transform 0.3s ease;" onclick="openLightbox(this.src)">
+          
+          <div style="position: absolute; top: 20px; left: 20px; background-color: rgba(255, 255, 255, 0.95); padding: 8px 16px; border-radius: 4px; font-weight: bold; font-size: 0.85rem; color: var(--brand, #00877C); text-transform: uppercase; letter-spacing: 0.05em; z-index: 10; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            @if($tour->categories && $tour->categories->count() > 0)
+              {{ $tour->categories->pluck('name')->join(' or ') }}
+            @else
+              Small Group or Private Tours
+            @endif
+          </div>
+        </div>
+
+        <div id="image-lightbox" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.85); z-index: 99999; justify-content: center; align-items: center; cursor: zoom-out; backdrop-filter: blur(5px);" onclick="this.style.display='none'">
+            <img id="lightbox-img" src="" style="max-width: 95vw; max-height: 95vh; object-fit: contain; border-radius: 4px; box-shadow: 0 10px 40px rgba(0,0,0,0.5);">
+        </div>
+        
+        <script>
+            function openLightbox(src) {
+                document.getElementById('lightbox-img').src = src;
+                document.getElementById('image-lightbox').style.display = 'flex';
+            }
+        </script>
         @endif
 
         <div class="reveal">
