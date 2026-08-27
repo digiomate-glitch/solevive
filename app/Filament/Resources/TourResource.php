@@ -15,8 +15,8 @@ class TourResource extends Resource
 {
     protected static ?string $model = Tour::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-globe-americas';
-    protected static ?string $navigationGroup = 'Tours';
+    protected static \BackedEnum|string|null $navigationIcon = 'heroicon-o-globe-americas';
+    protected static \UnitEnum|string|null $navigationGroup = 'Tours';
 
     public static function form(Form $form): Form
     {

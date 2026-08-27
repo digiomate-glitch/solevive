@@ -17,8 +17,8 @@ class InquiryResource extends Resource
 {
     protected static ?string $model = Inquiry::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-chat-bubble-left-ellipsis';
-    protected static ?string $navigationGroup = 'Studio';
+    protected static \BackedEnum|string|null $navigationIcon = 'heroicon-o-chat-bubble-left-ellipsis';
+    protected static \UnitEnum|string|null $navigationGroup = 'Studio';
 
     public static function canCreate(): bool
     {
