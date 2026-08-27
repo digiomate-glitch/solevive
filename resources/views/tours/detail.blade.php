@@ -142,7 +142,7 @@
           @foreach($tour->accommodations as $hotel)
           <div class="stay-card">
             <div class="card-image-wrap ratio-1-1 stay-thumb">
-              <img src="{{ $hotel->image ? asset('storage/' . $hotel->media?->path) : asset('assets/images/placeholder.jpg') }}" alt="{{ $hotel->hotel_name }}">
+              <img src="{{ $hotel->image ? asset('storage/' . $hotel->media?->path) : asset('assets/images/placeholder.jpg') }}" alt="{{ $hotel->hotel_name }}" style="cursor: zoom-in; transition: transform 0.3s ease;" onclick="openLightbox(this.src)">
             </div>
             <div>
               <h4>{{ $hotel->hotel_name }}</h4>
